@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import TasksCard from './TasksCard';
 
 class Tasks extends Component {
 	render() {
@@ -8,11 +9,11 @@ class Tasks extends Component {
 			<Row>
 				<Col xs={{ span: 8, offset: 2 }} className="tasks_list">
 					<p className="title">To-do</p>
-					List...
+					<TasksCard/>
 				</Col>
 				<Col xs={{ span: 8, offset: 2 }} className="tasks_list">
 					<p className="title">Done</p>
-					List...
+					<TasksCard/>
 				</Col>
 			</Row>
 		);
