@@ -21,5 +21,21 @@ $red: #EE4525;
  
   .card{
     background-color: $dark-grey;
+    table{
+      tbody > tr:nth-child(1) > td{
+        border-top: 0;
+      }
+      color: white;
+      font-weight: 500;
+      margin-bottom: 5px;
+ 
+      .check{
+        color: $yellow;
+        font-size: 15px;
+      }
+      .delete{
+        color: white;
+      }
+    }
   }
 }
