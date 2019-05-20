@@ -4,6 +4,21 @@ import Col from 'react-bootstrap/Col';
 import TasksCard from './TasksCard';
 
 class TaskList extends Component {
+	constructor(props) {
+    super(props);
+    this.state = {tasks: []};
+  }
+
+  async loadTasks(){
+  	let response = await fetch("http://localhost:3001/tasks");
+  	const tasks = await response.json();
+  	this.setState({tasks: tasks});
+  }
+
+  componentDidMount(){
+  	this.loadTasks();
+  }
+
 	render() {
 		return (
 			<Row>
