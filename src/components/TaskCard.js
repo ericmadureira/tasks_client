@@ -5,6 +5,14 @@ import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
    
 class TaskCard extends Component {
+
+  async deleteTask(task) {
+    if (window.confirm(`Are you sure you want to delete: "${task.title}"`)) {
+      await fetch(`http://localhost:3001/tasks/${task.id}`, {method: 'DELETE'});
+      this.props.loadTasks();
+    }
+  }
+
   render() {
     return (
       <div>
@@ -19,7 +27,7 @@ class TaskCard extends Component {
                       { task.done == false ? <a className="check" href="#"><FontAwesomeIcon icon="check-circle"/></a> : null }
                     </td>
                     <td>
-                      <a className="delete" href="#">
+                      <a className="delete" onClick={() => this.deleteTask(task)} href="#">
                         <FontAwesomeIcon icon="trash-alt"/>
                       </a>
                     </td>
